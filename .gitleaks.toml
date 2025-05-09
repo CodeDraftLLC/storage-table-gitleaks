@@ -1,0 +1,23 @@
+[allowlist]
+  description = "Global allowlist"
+  
+  # Sample allowlist for paths/commits/etc.
+  #paths = [
+  #  "README.md"
+  #]
+
+# Add rules for Azure connection strings
+[[rules]]
+id = "azure-connection-string"
+description = "Azure Connection String"
+regex = '''DefaultEndpointsProtocol=https?;AccountName=[^;]+;AccountKey=[^;]+=;'''
+secret-group = 0
+entropy = 3.5
+tags = ["azure", "connection-string"]
+
+[[rules]]
+id = "azure-account-key"
+description = "Azure Account Key"
+regex = '''AccountKey=([^;]+=);'''
+secret-group = 1
+tags = ["azure", "key"]
